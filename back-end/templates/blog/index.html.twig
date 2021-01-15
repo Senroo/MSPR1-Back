@@ -1,20 +1,96 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogController!{% endblock %}
+{% block title %}
+  Hello BlogController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+  <section class="artcile">
+    <article>
+      <img src="https://picsum.photos/200/300" />
+      <h2>
+        Titre de l'artciles
+      </h2>
+      <div class="metabase">
+        Ecrit le 96 janvier à 9 h 00
+      </div>
+      <div class="content">
+        <p>
+          Sint nostrud nulla dolore quis nisi. Nulla eiusmod cupidatat laborum
+          ad nostrud proident dolor consequat voluptate. Ad consectetur cillum
+          enim amet deserunt enim. Qui sit consectetur elit pariatur culpa.
+          Dolore id ipsum occaecat in. Excepteur consequat adipisicing
+          incididunt sunt aliqua sunt minim in deserunt exercitation minim
+          ipsum.
+        </p>
+        <p>
+          Sint nostrud nulla dolore quis nisi. Nulla eiusmod cupidatat laborum
+          ad nostrud proident dolor consequat voluptate. Ad consectetur cillum
+          enim amet deserunt enim. Qui sit consectetur elit pariatur culpa.
+          Dolore id ipsum occaecat in. Excepteur consequat adipisicing
+          incididunt sunt aliqua sunt minim in deserunt exercitation minim
+          ipsum.
+        </p>
+        <a href="{{ path('blog_show') }}">Lire la suite ...</a>
+      </div>
+    </article>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <article>
+      <img src="https://picsum.photos/200/300" />
+      <h2>
+        Titre de l'artciles
+      </h2>
+      <div class="metabase">
+        Ecrit le 96 janvier à 9 h 00
+      </div>
+      <div class="content">
+        <p>
+          Sint nostrud nulla dolore quis nisi. Nulla eiusmod cupidatat laborum
+          ad nostrud proident dolor consequat voluptate. Ad consectetur cillum
+          enim amet deserunt enim. Qui sit consectetur elit pariatur culpa.
+          Dolore id ipsum occaecat in. Excepteur consequat adipisicing
+          incididunt sunt aliqua sunt minim in deserunt exercitation minim
+          ipsum.
+        </p>
+        <p>
+          Sint nostrud nulla dolore quis nisi. Nulla eiusmod cupidatat laborum
+          ad nostrud proident dolor consequat voluptate. Ad consectetur cillum
+          enim amet deserunt enim. Qui sit consectetur elit pariatur culpa.
+          Dolore id ipsum occaecat in. Excepteur consequat adipisicing
+          incididunt sunt aliqua sunt minim in deserunt exercitation minim
+          ipsum.
+        </p>
+        <a href="{{ path('blog_show') }}">Lire la suite ...</a>
+      </div>
+    </article>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/senge/Documents/GitHub/MSPR1-Back/back-end/src/Controller/BlogController.php'|file_link(0) }}">src/Controller/BlogController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/senge/Documents/GitHub/MSPR1-Back/back-end/templates/blog/index.html.twig'|file_link(0) }}">templates/blog/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <article>
+      <img src="https://picsum.photos/200/300" />
+      <h2>
+        Titre de l'artciles
+      </h2>
+      <div class="metabase">
+        Ecrit le 96 janvier à 9 h 00
+      </div>
+      <div class="content">
+        <p>
+          Sint nostrud nulla dolore quis nisi. Nulla eiusmod cupidatat laborum
+          ad nostrud proident dolor consequat voluptate. Ad consectetur cillum
+          enim amet deserunt enim. Qui sit consectetur elit pariatur culpa.
+          Dolore id ipsum occaecat in. Excepteur consequat adipisicing
+          incididunt sunt aliqua sunt minim in deserunt exercitation minim
+          ipsum.
+        </p>
+        <p>
+          Sint nostrud nulla dolore quis nisi. Nulla eiusmod cupidatat laborum
+          ad nostrud proident dolor consequat voluptate. Ad consectetur cillum
+          enim amet deserunt enim. Qui sit consectetur elit pariatur culpa.
+          Dolore id ipsum occaecat in. Excepteur consequat adipisicing
+          incididunt sunt aliqua sunt minim in deserunt exercitation minim
+          ipsum.
+        </p>
+        <a href="{{ path('blog_show') }}">Lire la suite ...</a>
+      </div>
+    </article>
+  </section>
 {% endblock %}
