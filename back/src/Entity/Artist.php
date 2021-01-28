@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArtistRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,22 @@ class Artist
      * @ORM\Column(type="string", length=255)
      */
     private $picture;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ArtistMeeting::class, mappedBy="artist", orphanRemoval=true)
+     */
+    private $artist_meetings;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=ConcertPlanning::class, inversedBy="artists")
+     */
+    private $concertplanning;
+
+    public function __construct()
+    {
+        $this->artist_meetings = new ArrayCollection();
+        $this->concertplanning = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +104,60 @@ class Artist
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ArtistMeeting[]
+     */
+    public function getArtistMeetings(): Collection
+    {
+        return $this->artist_meetings;
+    }
+
+    public function addArtistMeeting(ArtistMeeting $artistMeeting): self
+    {
+        if (!$this->artist_meetings->contains($artistMeeting)) {
+            $this->artist_meetings[] = $artistMeeting;
+            $artistMeeting->setArtist($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtistMeeting(ArtistMeeting $artistMeeting): self
+    {
+        if ($this->artist_meetings->removeElement($artistMeeting)) {
+            // set the owning side to null (unless already changed)
+            if ($artistMeeting->getArtist() === $this) {
+                $artistMeeting->setArtist(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ConcertPlanning[]
+     */
+    public function getConcertplanning(): Collection
+    {
+        return $this->concertplanning;
+    }
+
+    public function addConcertplanning(ConcertPlanning $concertplanning): self
+    {
+        if (!$this->concertplanning->contains($concertplanning)) {
+            $this->concertplanning[] = $concertplanning;
+        }
+
+        return $this;
+    }
+
+    public function removeConcertplanning(ConcertPlanning $concertplanning): self
+    {
+        $this->concertplanning->removeElement($concertplanning);
 
         return $this;
     }

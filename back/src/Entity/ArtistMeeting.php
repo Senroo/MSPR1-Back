@@ -32,6 +32,12 @@ class ArtistMeeting
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Artist::class, inversedBy="artist_meetings")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $artist;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +75,18 @@ class ArtistMeeting
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getArtist(): ?Artist
+    {
+        return $this->artist;
+    }
+
+    public function setArtist(?Artist $artist): self
+    {
+        $this->artist = $artist;
 
         return $this;
     }
