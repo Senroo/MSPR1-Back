@@ -1,0 +1,103 @@
+<style>
+    .container-fluid, #container-row {min-height: 100vh;}
+    #sidebar {
+        box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+        font-family: Roboto,Helvetica,Arial,sans-serif;
+    }
+    #sidebar p {font-size: 14px; font-weight: 300;}
+    #sidebarInfo .h5 {text-transform: uppercase; padding: 5px 0;}
+    #sidebarInfo .h5, #sidebarInfo .h6 {font-size: 18px; color: #3c4858; font-weight: 400;}
+    #sidebarInfo:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 15px;
+        height: 1px;
+        width: calc(100% - 30px);
+        background-color: rgb(212 209 209);
+    }
+    #sidebar li.active>a {
+        background-color: #9c27b0;
+        box-shadow: 0 4px 20px 0 rgba(0,0,0,0.14), 0 7px 10px -5px rgba(156,39,176,0.4);
+    }
+    #sidebar .nav-link {
+        margin: 10px 15px 0;
+        border-radius: 3px;
+        color: #3c4858;
+        text-transform: capitalize;
+        padding: 10px 15px;
+    }
+    #sidebar .nav-link i {color: #a9afbb; padding-right: 20px; width: 45px;}
+    #sidebarLogout {background-color: #e16571;}
+    #sidebarLogout:hover {color: #f8f9fa!important; background-color: #ed4a5a;}
+
+</style>
+
+<div class="container-fluid px-0">
+    <div class="row m-0" id="container-row">
+        <div class="col-2 px-0 d-flex flex-column justify-content-between" id="sidebar">
+            <div>
+                <div class="text-center py-3 position-relative" id="sidebarInfo">
+                    <div class="h5">Connecté en tant que :</div>
+                    <div class="h6">{{ app.user.username }}</div>
+                </div>
+                <ul class="mt-3 nav">
+                    <li class="nav-item w-100">
+                        <a href="{{ path('app_artists') }}" class="nav-link d-flex">
+                            <i class="fas fa-music fa-lg pt-1"></i>
+                            <p class="mb-0">Artistes</p>
+                        </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <a href="{{ path('app_artist_meetings') }}" class="nav-link d-flex">
+                            <i class="fas fa-calendar-alt fa-lg pt-1"></i>
+                            <p class="mb-0">Rencontres artistes</p>
+                        </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <a href="{{ path('app_concerts') }}" class="nav-link d-flex">
+                            <i class="fas fa-guitar fa-lg pt-1"></i>
+                            <p class="mb-0">Concerts</p>
+                        </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <a href="{{ path('app_faq') }}" class="nav-link d-flex">
+                            <i class="fas fa-question-circle fa-lg pt-1"></i>
+                            <p class="mb-0">FAQ</p>
+                        </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <a href="{{ path('app_map_markers') }}" class="nav-link d-flex">
+                            <i class="fas fa-map-marker-alt fa-lg pt-1"></i>
+                            <p class="mb-0">Marqueurs Carte</p>
+                        </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <a href="{{ path('app_notifications') }}" class="nav-link d-flex">
+                            <i class="fas fa-bell fa-lg pt-1"></i>
+                            <p class="mb-0">Notifications</p>
+                        </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <a href="{{ path('app_partners') }}" class="nav-link d-flex">
+                            <i class="fas fa-handshake fa-lg pt-1"></i>
+                            <p class="mb-0">Partenaires</p>
+                        </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <a href="{{ path('app_sliders') }}" class="nav-link d-flex">
+                            <i class="fas fa-images fa-lg pt-1"></i>
+                            <p class="mb-0">Carousels</p>
+                        </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <a href="{{ path('app_stages') }}" class="nav-link d-flex">
+                            <i class="fas fa-volume-up fa-lg pt-1"></i>
+                            <p class="mb-0">Scènes</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a href="{{ path('app_logout') }}" class="text-light text-decoration-none w-100 py-2 text-center font-weight-bold w-100" id="sidebarLogout">Déconnexion</a>
+        </div>
+        <div class="col-10 px-0">

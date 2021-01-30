@@ -5,3 +5,39 @@
 app_logout:
   path: /logout
   methods: GET
+
+app_artists:
+  path: /admin-panel/artistes
+  methods: GET
+
+app_artist_meetings:
+  path: /admin-panel/meetings-artistes
+  methods: GET
+
+app_concerts:
+  path: /admin-panel/concerts
+  methods: GET
+
+app_faq:
+  path: /admin-panel/faq
+  methods: GET
+
+app_map_markers:
+  path: /admin-panel/marqueurs-carte
+  methods: GET
+
+app_notifications:
+  path: /admin-panel/notifications
+  methods: GET
+
+app_partners:
+  path: /admin-panel/partenaires
+  methods: GET
+
+app_sliders:
+  path: /admin-panel/carousels
+  methods: GET
+
+app_stages:
+  path: /admin-panel/scenes
+  methods: GET

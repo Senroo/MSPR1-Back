@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class BackController extends AbstractController
+class StagesController extends AbstractController
 {
     /**
-     * @Route("/back", name="back")
+     * @Route("/admin-panel/scenes", name="stages")
      */
     public function index(): Response
     {
-        return $this->render('back/index.html.twig', [
-            'controller_name' => 'BackController',
+        return $this->render('stages/index.html.twig', [
+            'controller_name' => 'StagesController',
         ]);
     }
 }

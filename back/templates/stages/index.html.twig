@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}Scènes - Back-office{% endblock %}
+{% block body %}
+    {% include 'sidebar/top.html.twig' %}
+    <style>
+
+    </style>
+    <h1>Hello {{ controller_name }}! ✅</h1>
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at
+            <code><a href="{{ 'C:/wamp64/www/wis/MSPR1-Back/back/src/Controller/StagesController.php'|file_link(0) }}">src/Controller/StagesController.php</a></code>
+        </li>
+        <li>Your template at
+            <code><a href="{{ 'C:/wamp64/www/wis/MSPR1-Back/back/templates/stages/index.html.twig'|file_link(0) }}">templates/stages/index.html.twig</a></code>
+        </li>
+    </ul>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}
