@@ -1,23 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block title %}Carousels - Back-office{% endblock %}
 {% block body %}
-    {% include 'sidebar/top.html.twig' %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
     <style>
-        #sidebar li:nth-child(8) .nav-link, #sidebar li:nth-child(8) i {color: #fff}
-        #sidebar li:nth-child(8) a {
-            background-color: #9c27b0;
-            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
-        }
+
     </style>
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at
-            <code><a href="{{ 'C:/wamp64/www/wis/MSPR1-Back/back/src/Controller/SlidersController.php'|file_link(0) }}">src/Controller/SlidersController.php</a></code>
-        </li>
-        <li>Your template at
-            <code><a href="{{ 'C:/wamp64/www/wis/MSPR1-Back/back/templates/sliders/index.html.twig'|file_link(0) }}">templates/sliders/index.html.twig</a></code>
-        </li>
-    </ul>
+    {{ include('page_title.html.twig', {title: 'Carousels'}) }}
+    <div class="main">
+
+    </div>
     {% include 'sidebar/bottom.html.twig' %}
 {% endblock %}

@@ -3,6 +3,12 @@
     #sidebar {
         box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
         font-family: Roboto,Helvetica,Arial,sans-serif;
+        min-width: 253px;
+    }
+    #sidebar li:nth-child({{ listItem }}) .nav-link, #sidebar li:nth-child({{ listItem }}) i {color: #fff}
+    #sidebar li:nth-child({{ listItem }}) a {
+        background-color: #9c27b0;
+        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
     }
     #sidebar p {font-size: 14px; font-weight: 300;}
     #sidebarInfo .h5 {text-transform: uppercase; padding: 5px 0;}
@@ -27,6 +33,7 @@
     #sidebar .nav-link i {color: #a9afbb; padding-right: 20px; width: 45px;}
     #sidebarLogout {background-color: #e16571;}
     #sidebarLogout:hover {color: #f8f9fa!important; background-color: #ed4a5a;}
+    #contentCol {max-width: calc(100% - 253px);}
 
 </style>
 
@@ -97,4 +104,4 @@
             </div>
             <a href="{{ path('app_logout') }}" class="text-light text-decoration-none w-100 py-2 text-center font-weight-bold w-100" id="sidebarLogout">Déconnexion</a>
         </div>
-        <div class="col-10 px-0">
+        <div class="col-10 px-0" id="contentCol">
