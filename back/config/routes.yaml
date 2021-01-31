@@ -6,6 +6,10 @@ app_logout:
   path: /logout
   methods: GET
 
+app_admin-panel:
+  path: /admin-panel
+  methods: GET
+
 app_artists:
   path: /admin-panel/artistes
   methods: GET
