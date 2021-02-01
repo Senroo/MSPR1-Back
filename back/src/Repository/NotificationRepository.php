@@ -19,22 +19,18 @@ class NotificationRepository extends ServiceEntityRepository
         parent::__construct($registry, Notification::class);
     }
 
-    // /**
-    //  * @return Notification[] Returns an array of Notification objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $orderKey
+     * @return Notification[] Returns an array of Artist objects ordered by name
+     */
+    public function findAllOrderedBy($orderKey): array
     {
-        return $this->createQueryBuilder('n')
-            ->andWhere('n.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('n.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.'.$orderKey, 'DESC')
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Notification

@@ -7,7 +7,12 @@
     </style>
     {{ include('page_title.html.twig', {title: 'Scènes'}) }}
     <div class="main">
-
+        {% for stage in stages %}
+            <div class="my-1">
+                <span>{{ stage.name }}</span>
+                <span>{{ stage.location }}</span>
+            </div>
+        {% endfor %}
     </div>
     {% include 'sidebar/bottom.html.twig' %}
 {% endblock %}

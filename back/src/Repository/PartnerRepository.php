@@ -19,22 +19,18 @@ class PartnerRepository extends ServiceEntityRepository
         parent::__construct($registry, Partner::class);
     }
 
-    // /**
-    //  * @return Partner[] Returns an array of Partner objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $orderKey
+     * @return Partner[] Returns an array of Artist objects ordered by name
+     */
+    public function findAllOrderedBy($orderKey): array
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.'.$orderKey, 'ASC')
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Partner

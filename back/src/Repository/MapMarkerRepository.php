@@ -19,22 +19,18 @@ class MapMarkerRepository extends ServiceEntityRepository
         parent::__construct($registry, MapMarker::class);
     }
 
-    // /**
-    //  * @return MapMarker[] Returns an array of MapMarker objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $orderKey
+     * @return MapMarker[] Returns an array of Artist objects ordered by name
+     */
+    public function findAllOrderedBy($orderKey): array
     {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.'.$orderKey, 'ASC')
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?MapMarker

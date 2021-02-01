@@ -49,6 +49,11 @@ class Artist
      */
     private $concertplanning;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $genre;
+
     public function __construct()
     {
         $this->artist_meetings = new ArrayCollection();
@@ -158,6 +163,18 @@ class Artist
     public function removeConcertplanning(ConcertPlanning $concertplanning): self
     {
         $this->concertplanning->removeElement($concertplanning);
+
+        return $this;
+    }
+
+    public function getGenre(): ?string
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(string $genre): self
+    {
+        $this->genre = $genre;
 
         return $this;
     }

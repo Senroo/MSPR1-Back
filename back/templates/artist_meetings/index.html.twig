@@ -7,7 +7,13 @@
     </style>
     {{ include('page_title.html.twig', {title: 'Rencontres Artistes'}) }}
     <div class="main">
-
+        {% for artistMeeting in artistsMeetings %}
+            <div class="my-1">
+                <span>{{ artistMeeting.artistId }}</span>
+                <span>{{ artistMeeting.location }}</span>
+                <span>{{ artistMeeting.date|format_datetime('long', 'short', locale='fr') }}</span>
+            </div>
+        {% endfor %}
     </div>
     {% include 'sidebar/bottom.html.twig' %}
 {% endblock %}

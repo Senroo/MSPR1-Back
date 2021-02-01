@@ -19,22 +19,18 @@ class ConcertPlanningRepository extends ServiceEntityRepository
         parent::__construct($registry, ConcertPlanning::class);
     }
 
-    // /**
-    //  * @return ConcertPlanning[] Returns an array of ConcertPlanning objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $orderKey
+     * @return ConcertPlanning[] Returns an array of Artist objects ordered by name
+     */
+    public function findAllOrderedBy($orderKey): array
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.'.$orderKey, 'ASC')
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?ConcertPlanning

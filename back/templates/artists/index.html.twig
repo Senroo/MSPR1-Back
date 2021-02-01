@@ -7,7 +7,14 @@
     </style>
     {{ include('page_title.html.twig', {title: 'Artistes'}) }}
     <div class="main">
-
+        {% for artist in artists %}
+            <div class="my-1">
+                <span>{{ artist.picture }}</span>
+                <span>{{ artist.name }}</span>
+                <span>{{ artist.musicGroup }}</span>
+                <span>{{ artist.genre }}</span>
+            </div>
+        {% endfor %}
     </div>
     {% include 'sidebar/bottom.html.twig' %}
 {% endblock %}

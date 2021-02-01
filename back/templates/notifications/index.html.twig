@@ -7,7 +7,15 @@
     </style>
     {{ include('page_title.html.twig', {title: 'Notifications'}) }}
     <div class="main">
-
+        {% for notification in notifications %}
+            <div class="my-1">
+                <span>{{ notification.title }}</span>
+                <span>{{ notification.message }}</span>
+                <span>{{ notification.urgencyLevel }}</span>
+                <span>{{ notification.releaseDate|format_date('long', locale='fr') }}</span>//
+                <span>{{ notification.duration|format_datetime('none', 'short', locale='fr') }}</span>
+            </div>
+        {% endfor %}
     </div>
     {% include 'sidebar/bottom.html.twig' %}
 {% endblock %}
