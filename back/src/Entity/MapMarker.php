@@ -18,7 +18,7 @@ class MapMarker
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $type;
 
@@ -42,12 +42,12 @@ class MapMarker
         return $this->id;
     }
 
-    public function getType(): ?int
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function setType(int $type): self
+    public function setType(string $type): self
     {
         $this->type = $type;
 

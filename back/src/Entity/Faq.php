@@ -23,7 +23,7 @@ class Faq
     private $question;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $category;
 
@@ -49,12 +49,12 @@ class Faq
         return $this;
     }
 
-    public function getCategory(): ?int
+    public function getCategory(): ?string
     {
         return $this->category;
     }
 
-    public function setCategory(int $category): self
+    public function setCategory(string $category): self
     {
         $this->category = $category;
 

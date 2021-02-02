@@ -19,3 +19,12 @@ require('bootstrap');
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
+
+$('.main .table .tableRow').hover(function() {
+    $(this).children('.tableOptions').toggleClass('invisible');
+});
+
+$('.main .table .tableOptions').hover(function() {
+    $(this).removeClass('invisible');
+});
+

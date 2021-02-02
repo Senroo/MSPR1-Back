@@ -55,19 +55,15 @@ class ConcertPlanning
     private $stage_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Artist::class, mappedBy="concertplanning")
-     */
-    private $artists;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Stage::class, inversedBy="concertplanning")
      */
     private $stage;
 
-    public function __construct()
-    {
-        $this->artists = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=Artist::class, inversedBy="concertplanning")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $artist;
 
     public function getId(): ?int
     {
@@ -158,33 +154,6 @@ class ConcertPlanning
         return $this;
     }
 
-    /**
-     * @return Collection|Artist[]
-     */
-    public function getArtists(): Collection
-    {
-        return $this->artists;
-    }
-
-    public function addArtist(Artist $artist): self
-    {
-        if (!$this->artists->contains($artist)) {
-            $this->artists[] = $artist;
-            $artist->addConcertplanning($this);
-        }
-
-        return $this;
-    }
-
-    public function removeArtist(Artist $artist): self
-    {
-        if ($this->artists->removeElement($artist)) {
-            $artist->removeConcertplanning($this);
-        }
-
-        return $this;
-    }
-
     public function getStage(): ?Stage
     {
         return $this->stage;
@@ -193,6 +162,18 @@ class ConcertPlanning
     public function setStage(?Stage $stage): self
     {
         $this->stage = $stage;
+
+        return $this;
+    }
+
+    public function getArtist(): ?Artist
+    {
+        return $this->artist;
+    }
+
+    public function setArtist(?Artist $artist): self
+    {
+        $this->artist = $artist;
 
         return $this;
     }

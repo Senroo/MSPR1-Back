@@ -19,7 +19,7 @@ class SlidersController extends AbstractController
      */
     public function index(SliderRepository $repository): Response
     {
-        $slidersImgs = $repository->findAllOrderedBy("slider_id", "position");
+        $slidersImgs = $repository->findAllOrderedBy("slider_name", "position");
 
         return $this->render('sliders/index.html.twig', [
             'sliders_imgs' => $slidersImgs,

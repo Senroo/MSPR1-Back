@@ -18,9 +18,9 @@ class Slider
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $slider_id;
+    private $slider_name;
 
     /**
      * @ORM\Column(type="integer")
@@ -37,14 +37,14 @@ class Slider
         return $this->id;
     }
 
-    public function getSliderId(): ?int
+    public function getSliderName(): ?string
     {
-        return $this->slider_id;
+        return $this->slider_name;
     }
 
-    public function setSliderId(int $slider_id): self
+    public function setSliderId(string $slider_name): self
     {
-        $this->slider_id = $slider_id;
+        $this->slider_name = $slider_name;
 
         return $this;
     }

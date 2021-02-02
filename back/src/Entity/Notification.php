@@ -28,7 +28,7 @@ class Notification
     private $message;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $urgency_level;
 
@@ -71,12 +71,12 @@ class Notification
         return $this;
     }
 
-    public function getUrgencyLevel(): ?int
+    public function getUrgencyLevel(): ?string
     {
         return $this->urgency_level;
     }
 
-    public function setUrgencyLevel(int $urgency_level): self
+    public function setUrgencyLevel(string $urgency_level): self
     {
         $this->urgency_level = $urgency_level;
 

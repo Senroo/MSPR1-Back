@@ -3,19 +3,55 @@
 {% block body %}
     {{ include('sidebar/top.html.twig', {listItem: 6}) }}
     <style>
-
+        .main .tableInfo {font-weight: 400; font-size: 14px;}
+        .main .tableOptions .tableEdit {color: #6bbce3;}
+        .main .tableOptions .tableDelete {color : #df6671;}
+        .main .table {
+            box-shadow: 0 1px 4px 1px rgba(0,0,0,0.14);
+            border-radius: 5px;
+            font-family: Roboto,Helvetica,Arial,sans-serif;
+            color: rgb(51,51,51);
+        }
+        .main .tableRow img {width: 25%}
+        .main .table tbody {background-color: white; font-size: 14px;}
+        .main .table th {padding: 12px 8px; border-color: #ddd;}
+        .main .table td {vertical-align: middle;}
+        .main .table thead {color: #fff; background-color: #c677d9;}
     </style>
     {{ include('page_title.html.twig', {title: 'Notifications'}) }}
-    <div class="main">
-        {% for notification in notifications %}
-            <div class="my-1">
-                <span>{{ notification.title }}</span>
-                <span>{{ notification.message }}</span>
-                <span>{{ notification.urgencyLevel }}</span>
-                <span>{{ notification.releaseDate|format_date('long', locale='fr') }}</span>//
-                <span>{{ notification.duration|format_datetime('none', 'short', locale='fr') }}</span>
-            </div>
-        {% endfor %}
+    <div class="main px-5 mt-5">
+        <div class="text-muted tableInfo">Liste des notifications (survoler pour révéler les options)</div>
+        <table class="table text-center">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Message</th>
+                <th>Importance</th>
+                <th>Date/Heure de début</th>
+                <th>Durée de diffusion</th>
+                <th class="tableOptionsCol"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for notification in notifications %}
+                <tr class="tableRow">
+                    <td>{{ notification.title }}</td>
+                    <td>{{ notification.message }}</td>
+                    <td>{{ notification.urgencyLevel }}</td>
+                    <td>{{ notification.releaseDate|format_date('long', locale='fr') }}</td>
+                    <td>{{ notification.duration|format_datetime('none', 'short', locale='fr') }}</td>
+                    <td class="tableOptions p-0 invisible">
+                        <div class="d-flex justify-content-between">
+                            <a href="" class="nav-link p-3 mr-1 tableEdit" title="Éditer"><i
+                                        class="fas fa-edit fa-lg"></i></a>
+                            <a href="" class="nav-link p-3 ml-1 tableDelete" title="Supprimer"><i
+                                        class="fas fa-trash-alt fa-lg"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
     {% include 'sidebar/bottom.html.twig' %}
 {% endblock %}

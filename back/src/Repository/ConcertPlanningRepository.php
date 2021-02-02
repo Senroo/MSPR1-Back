@@ -27,6 +27,10 @@ class ConcertPlanningRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->orderBy('a.'.$orderKey, 'ASC')
+            ->leftJoin('a.stage', 'scn')
+            ->addSelect('scn')
+            ->leftJoin('a.artist', 'art')
+            ->addSelect('art')
             ->getQuery()
             ->getResult()
             ;

@@ -40,19 +40,19 @@ class Artist
     private $picture;
 
     /**
-     * @ORM\OneToMany(targetEntity=ArtistMeeting::class, mappedBy="artist", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=ArtistMeeting::class, mappedBy="artist")
      */
     private $artist_meetings;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=ConcertPlanning::class, inversedBy="artists")
-     */
-    private $concertplanning;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $genre;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ConcertPlanning::class, mappedBy="artist", orphanRemoval=true)
+     */
+    private $concertplanning;
 
     public function __construct()
     {
@@ -143,6 +143,18 @@ class Artist
         return $this;
     }
 
+    public function getGenre(): ?string
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(string $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
     /**
      * @return Collection|ConcertPlanning[]
      */
@@ -155,6 +167,7 @@ class Artist
     {
         if (!$this->concertplanning->contains($concertplanning)) {
             $this->concertplanning[] = $concertplanning;
+            $concertplanning->setArtist($this);
         }
 
         return $this;
@@ -162,19 +175,12 @@ class Artist
 
     public function removeConcertplanning(ConcertPlanning $concertplanning): self
     {
-        $this->concertplanning->removeElement($concertplanning);
-
-        return $this;
-    }
-
-    public function getGenre(): ?string
-    {
-        return $this->genre;
-    }
-
-    public function setGenre(string $genre): self
-    {
-        $this->genre = $genre;
+        if ($this->concertplanning->removeElement($concertplanning)) {
+            // set the owning side to null (unless already changed)
+            if ($concertplanning->getArtist() === $this) {
+                $concertplanning->setArtist(null);
+            }
+        }
 
         return $this;
     }

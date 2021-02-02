@@ -27,6 +27,8 @@ class ArtistMeetingRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->orderBy('a.'.$orderKey, 'ASC')
+            ->leftJoin('a.artist', 'artm')
+            ->addSelect('artm')
             ->getQuery()
             ->getResult()
             ;
