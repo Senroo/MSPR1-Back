@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ajout IMG Carousel - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Ajout d'une image dans un carousel"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(sliderAddForm) }}
+            {{ form_row(sliderAddForm.slider_name) }}
+            {{ form_row(sliderAddForm.position) }}
+            {{ form_row(sliderAddForm.picture) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(sliderAddForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}

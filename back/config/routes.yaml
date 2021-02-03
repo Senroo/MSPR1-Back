@@ -42,6 +42,18 @@ app_sliders:
   path: /admin-panel/carousels
   methods: GET
 
+app_sliders_add:
+  path: /admin-panel/carousels/ajouter
+  methods: GET
+
+app_sliders_edit:
+  path: /admin-panel/carousels/modifier
+  methods: GET
+
+app_sliders_delete:
+  path: /admin-panel/carousels/supprimer
+  methods: GET
+
 app_stages:
   path: /admin-panel/scenes
   methods: GET

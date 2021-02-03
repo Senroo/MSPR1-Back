@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modification IMG Carousel - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Modification d'une image dans un carousel"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(sliderEditForm) }}
+        {{ form_row(sliderEditForm.slider_name) }}
+        {{ form_row(sliderEditForm.position) }}
+        {{ form_row(sliderEditForm.picture, {
+            label: 'Image à modifier'
+        }) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(sliderEditForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}
