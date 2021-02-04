@@ -3,11 +3,36 @@
 {% block body %}
     {{ include('sidebar/top.html.twig', {listItem: -1}) }}
     <style>
-
+        .card-footer {border-top: 1px solid #eee;}
+        .card {border: none; background: none; box-shadow: 3px 2px 4px 0 rgba(0,0,0,0.14);}
+        .card .card-title {font-weight: 400; color: #3c4858;}
+        .card .card-category {color: #999;font-size: 14px;}
+        .card i {line-height: 56px;width: 56px; font-size: 36px; height: 56px; text-align: center; color: white;}
+        .card-icon {border-radius: 3px; padding: 15px; margin-top: -20px; float: left;}
+        .card-header.card-header-warning.card-header-icon {text-align: right;}
     </style>
     {{ include('page_title.html.twig', {title: 'Accueil'}) }}
     <div class="main">
-
+        <div class="row m-0">
+            {% for content in contents %}
+                <div class="col-lg-4 col-md-6 col-sm-6 my-3">
+                    <div class="card">
+                        <div class="card-header card-header-warning card-header-icon">
+                            <div class="card-icon" style="box-shadow: 2px 3px 2px 0 {{ content.color }}; background-color: {{ content.color }};">
+                                <i class="{{ content.icon }}"></i>
+                            </div>
+                            <p class="card-title h5">{{ content.label }}</p>
+                            <h3 class="card-category">{{ content.number }} trouvés.</h3>
+                        </div>
+                        <div class="card-footer text-center">
+                            <div class="stats">
+                                <a href="{{ path(content.route) }}" class="btn font-weight-bold text-white" style="background-color: {{ content.color }}">Voir les {{ content.label }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
     {% include 'sidebar/bottom.html.twig' %}
 {% endblock %}

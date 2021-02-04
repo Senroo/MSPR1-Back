@@ -36,6 +36,14 @@ class ConcertRepository extends ServiceEntityRepository
             ;
     }
 
+    public function countAll() {
+        return $this->createQueryBuilder('a')
+            ->select('count(a.id)')
+            ->getQuery()
+            ->getSingleScalarResult()
+            ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Concert
     {
