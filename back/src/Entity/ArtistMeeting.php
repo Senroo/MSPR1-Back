@@ -34,7 +34,7 @@ class ArtistMeeting
 
     /**
      * @ORM\ManyToOne(targetEntity=Artist::class, inversedBy="artist_meetings")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="artist_id", onDelete="CASCADE")
      */
     private $artist;
 

@@ -55,13 +55,14 @@ class Concert
     private $stage_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Stage::class, inversedBy="concert", cascade="remove")
+     * @ORM\ManyToOne(targetEntity=Stage::class, inversedBy="concert")
+     * @ORM\JoinColumn(name="stage_id", onDelete="CASCADE")
      */
     private $stage;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Artist::class, inversedBy="concert", cascade="remove")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Artist::class, inversedBy="concert")
+     * @ORM\JoinColumn(name="artist_id", onDelete="CASCADE")
      */
     private $artist;
 

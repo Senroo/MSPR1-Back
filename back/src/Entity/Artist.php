@@ -62,7 +62,7 @@ class Artist
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Concert::class, mappedBy="artist", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Concert::class, mappedBy="artist")
      */
     private $concert;
 
