@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ajout FAQ - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Ajout d'une paire question/réponse"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(faqAddForm) }}
+        {{ form_row(faqAddForm.question) }}
+        {{ form_row(faqAddForm.answer) }}
+        {{ form_row(faqAddForm.category) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(faqAddForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}

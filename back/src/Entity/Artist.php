@@ -62,14 +62,14 @@ class Artist
 
 
     /**
-     * @ORM\OneToMany(targetEntity=ConcertPlanning::class, mappedBy="artist", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Concert::class, mappedBy="artist", orphanRemoval=true)
      */
-    private $concertplanning;
+    private $concert;
 
     public function __construct()
     {
         $this->artist_meetings = new ArrayCollection();
-        $this->concertplanning = new ArrayCollection();
+        $this->concert = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -168,29 +168,29 @@ class Artist
     }
 
     /**
-     * @return Collection|ConcertPlanning[]
+     * @return Collection|Concert[]
      */
-    public function getConcertplanning(): Collection
+    public function getConcert(): Collection
     {
-        return $this->concertplanning;
+        return $this->concert;
     }
 
-    public function addConcertplanning(ConcertPlanning $concertplanning): self
+    public function addConcert(Concert $concert): self
     {
-        if (!$this->concertplanning->contains($concertplanning)) {
-            $this->concertplanning[] = $concertplanning;
-            $concertplanning->setArtist($this);
+        if (!$this->concert->contains($concert)) {
+            $this->concert[] = $concert;
+            $concert->setArtist($this);
         }
 
         return $this;
     }
 
-    public function removeConcertplanning(ConcertPlanning $concertplanning): self
+    public function removeConcert(Concert $concert): self
     {
-        if ($this->concertplanning->removeElement($concertplanning)) {
+        if ($this->concert->removeElement($concert)) {
             // set the owning side to null (unless already changed)
-            if ($concertplanning->getArtist() === $this) {
-                $concertplanning->setArtist(null);
+            if ($concert->getArtist() === $this) {
+                $concert->setArtist(null);
             }
         }
 

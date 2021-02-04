@@ -30,13 +30,13 @@ class Stage
     private $location;
 
     /**
-     * @ORM\OneToMany(targetEntity=ConcertPlanning::class, mappedBy="stage")
+     * @ORM\OneToMany(targetEntity=Concert::class, mappedBy="stage")
      */
-    private $concertplanning;
+    private $concert;
 
     public function __construct()
     {
-        $this->concertplanning = new ArrayCollection();
+        $this->concert = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -69,29 +69,29 @@ class Stage
     }
 
     /**
-     * @return Collection|ConcertPlanning[]
+     * @return Collection|Concert[]
      */
-    public function getConcertplanning(): Collection
+    public function getConcert(): Collection
     {
-        return $this->concertplanning;
+        return $this->concert;
     }
 
-    public function addConcertplanning(ConcertPlanning $concertplanning): self
+    public function addConcert(Concert $concert): self
     {
-        if (!$this->concertplanning->contains($concertplanning)) {
-            $this->concertplanning[] = $concertplanning;
-            $concertplanning->setStage($this);
+        if (!$this->concert->contains($concert)) {
+            $this->concert[] = $concert;
+            $concert->setStage($this);
         }
 
         return $this;
     }
 
-    public function removeConcertplanning(ConcertPlanning $concertplanning): self
+    public function removeConcert(Concert $concert): self
     {
-        if ($this->concertplanning->removeElement($concertplanning)) {
+        if ($this->concert->removeElement($concert)) {
             // set the owning side to null (unless already changed)
-            if ($concertplanning->getStage() === $this) {
-                $concertplanning->setStage(null);
+            if ($concert->getStage() === $this) {
+                $concert->setStage(null);
             }
         }
 

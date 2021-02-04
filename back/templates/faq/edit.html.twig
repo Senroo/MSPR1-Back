@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modification FAQ - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Modification d'une paire question/réponse"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(faqEditForm) }}
+        {{ form_row(faqEditForm.question) }}
+        {{ form_row(faqEditForm.answer) }}
+        {{ form_row(faqEditForm.category) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(faqEditForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}

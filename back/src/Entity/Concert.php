@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\ConcertPlanningRepository;
+use App\Repository\ConcertRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ConcertPlanningRepository::class)
+ * @ORM\Entity(repositoryClass=ConcertRepository::class)
  */
-class ConcertPlanning
+class Concert
 {
     /**
      * @ORM\Id
@@ -55,12 +55,12 @@ class ConcertPlanning
     private $stage_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Stage::class, inversedBy="concertplanning")
+     * @ORM\ManyToOne(targetEntity=Stage::class, inversedBy="concert", cascade="remove")
      */
     private $stage;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Artist::class, inversedBy="concertplanning")
+     * @ORM\ManyToOne(targetEntity=Artist::class, inversedBy="concert", cascade="remove")
      * @ORM\JoinColumn(nullable=false)
      */
     private $artist;

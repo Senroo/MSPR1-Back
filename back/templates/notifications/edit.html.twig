@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modification Notification - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Modification d'une notification"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(notificationEditForm) }}
+        {{ form_row(notificationEditForm.title) }}
+        {{ form_row(notificationEditForm.message) }}
+        {{ form_row(notificationEditForm.urgency) }}
+        {{ form_row(notificationEditForm.date) }}
+        {{ form_row(notificationEditForm.duration) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(notificationEditForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}

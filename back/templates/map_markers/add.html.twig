@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ajout Marqueur Carte - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Ajout d'un marqueur carte"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(mapMarkerAddForm) }}
+        {{ form_row(mapMarkerAddForm.type) }}
+        {{ form_row(mapMarkerAddForm.name) }}
+        {{ form_row(mapMarkerAddForm.description) }}
+        {{ form_row(mapMarkerAddForm.location) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(mapMarkerAddForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}

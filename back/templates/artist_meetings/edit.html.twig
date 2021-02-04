@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modification Rencontre Artiste - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Modification d'une rencontre artiste"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(artistMeetingEditForm) }}
+        {{ form_row(artistMeetingEditForm.artist) }}
+        {{ form_row(artistMeetingEditForm.location) }}
+        {{ form_row(artistMeetingEditForm.date) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(artistMeetingEditForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}

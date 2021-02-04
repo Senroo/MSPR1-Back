@@ -14,28 +14,112 @@ app_artists:
   path: /admin-panel/artistes
   methods: GET
 
+app_artists_add:
+  path: /admin-panel/artistes/ajouter
+  methods: GET
+
+app_artists_edit:
+  path: /admin-panel/artistes/modifier
+  methods: GET
+
+app_artists_delete:
+  path: /admin-panel/artistes/supprimer
+  methods: GET
+
 app_artist_meetings:
   path: /admin-panel/meetings-artistes
+  methods: GET
+
+app_artist_meetings_add:
+  path: /admin-panel/meetings-artistes/ajouter
+  methods: GET
+
+app_artist_meetings_edit:
+  path: /admin-panel/meetings-artistes/modifier
+  methods: GET
+
+app_artist_meetings_delete:
+  path: /admin-panel/meetings-artistes/supprimer
   methods: GET
 
 app_concerts:
   path: /admin-panel/concerts
   methods: GET
 
+app_concerts_add:
+  path: /admin-panel/concerts/ajouter
+  methods: GET
+
+app_concerts_edit:
+  path: /admin-panel/concerts/modifier
+  methods: GET
+
+app_concerts_delete:
+  path: /admin-panel/concerts/supprimer
+  methods: GET
+
 app_faq:
   path: /admin-panel/faq
+  methods: GET
+
+app_faq_add:
+  path: /admin-panel/faq/ajouter
+  methods: GET
+
+app_faq_edit:
+  path: /admin-panel/faq/modifier
+  methods: GET
+
+app_faq_delete:
+  path: /admin-panel/faq/supprimer
   methods: GET
 
 app_map_markers:
   path: /admin-panel/marqueurs-carte
   methods: GET
 
+app_map_markers_add:
+  path: /admin-panel/marqueurs-carte/ajouter
+  methods: GET
+
+app_map_markers_edit:
+  path: /admin-panel/marqueurs-carte/modifier
+  methods: GET
+
+app_map_markers_delete:
+  path: /admin-panel/marqueurs-carte/supprimer
+  methods: GET
+
 app_notifications:
   path: /admin-panel/notifications
   methods: GET
 
+app_notifications_add:
+  path: /admin-panel/notifications/ajouter
+  methods: GET
+
+app_notifications_edit:
+  path: /admin-panel/notifications/modifier
+  methods: GET
+
+app_notifications_delete:
+  path: /admin-panel/notifications/supprimer
+  methods: GET
+
 app_partners:
   path: /admin-panel/partenaires
+  methods: GET
+
+app_partners_add:
+  path: /admin-panel/partenaires/ajouter
+  methods: GET
+
+app_partners_edit:
+  path: /admin-panel/partenaires/modifier
+  methods: GET
+
+app_partners_delete:
+  path: /admin-panel/partenaires/supprimer
   methods: GET
 
 app_sliders:
@@ -56,4 +140,16 @@ app_sliders_delete:
 
 app_stages:
   path: /admin-panel/scenes
+  methods: GET
+
+app_stages_add:
+  path: /admin-panel/scenes/ajouter
+  methods: GET
+
+app_stages_edit:
+  path: /admin-panel/scenes/modifier
+  methods: GET
+
+app_stages_delete:
+  path: /admin-panel/scenes/supprimer
   methods: GET

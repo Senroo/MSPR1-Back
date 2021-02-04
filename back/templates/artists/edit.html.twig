@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modification Artiste - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Modification d'un artiste"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(artistEditForm) }}
+        {{ form_row(artistEditForm.name) }}
+        {{ form_row(artistEditForm.description) }}
+        {{ form_row(artistEditForm.group) }}
+        {{ form_row(artistEditForm.genre) }}
+        {{ form_row(artistEditForm.picture, {
+            label: 'Image à modifier'
+        }) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(artistEditForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}

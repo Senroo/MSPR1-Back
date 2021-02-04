@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modification Concert - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Modification d'un concert"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(concertEditForm) }}
+        {{ form_row(concertEditForm.stage) }}
+        {{ form_row(concertEditForm.name) }}
+        {{ form_row(concertEditForm.description) }}
+        {{ form_row(concertEditForm.genre) }}
+        {{ form_row(concertEditForm.artist) }}
+        {{ form_row(concertEditForm.date) }}
+        {{ form_row(concertEditForm.duration) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(concertEditForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}

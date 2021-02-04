@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modification d'une Scène - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Modification d'une scène"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(stageEditForm) }}
+        {{ form_row(stageEditForm.name) }}
+        {{ form_row(stageEditForm.location) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(stageEditForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}

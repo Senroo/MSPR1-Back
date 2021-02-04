@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ajout Partenaire - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Ajout d'un partenaire"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(partnerAddForm) }}
+        {{ form_row(partnerAddForm.name) }}
+        {{ form_row(partnerAddForm.description) }}
+        {{ form_row(partnerAddForm.logo) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(partnerAddForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}

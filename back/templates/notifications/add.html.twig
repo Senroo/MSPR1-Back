@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ajout Notification - Back-office{% endblock %}
+{% block body %}
+    {{ include('sidebar/top.html.twig', {listItem: 8}) }}
+    <style>
+
+    </style>
+    {{ include('page_title.html.twig', {title: "Ajout d'une notification"}) }}
+    <div class="main px-5 mt-5">
+        {{ form_start(notificationAddForm) }}
+        {{ form_row(notificationAddForm.title) }}
+        {{ form_row(notificationAddForm.message) }}
+        {{ form_row(notificationAddForm.urgency) }}
+        {{ form_row(notificationAddForm.date) }}
+        {{ form_row(notificationAddForm.duration) }}
+        <button type="submit" class="btn btn-success float-right">Valider</button>
+        {{ form_end(notificationAddForm) }}
+    </div>
+    {% include 'sidebar/bottom.html.twig' %}
+{% endblock %}
