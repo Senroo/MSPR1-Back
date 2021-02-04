@@ -4,8 +4,9 @@ namespace App\Entity;
 
 use App\Repository\FaqRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use ApiPlatform\Core\Annotation\ApiResource;
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=FaqRepository::class)
  */
 class Faq

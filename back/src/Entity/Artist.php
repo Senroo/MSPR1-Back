@@ -51,6 +51,7 @@ class Artist
      */
     private $genre;
 
+
     /**
      * @ORM\OneToMany(targetEntity=ConcertPlanning::class, mappedBy="artist", orphanRemoval=true)
      */
